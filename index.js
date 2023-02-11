@@ -38,11 +38,9 @@ const source = $t.source(1);
 
 $t.answer(1, async () => {
   // Your code goes here
-
   const reduce = (array) => {
     return array.map((item) => item.amount).reduce((a, b) => a + b);
   };
-
   const filter = (key, type) => {
     return source.filter((item) => item[key] === type);
   };
