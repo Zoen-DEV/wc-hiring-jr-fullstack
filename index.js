@@ -74,10 +74,7 @@ $t.answer(2, async () => {
   // 1. Get ids: $source.getIds()
   const ids = await $source.getIds();
   // 2. Get text for every id: $source.getText(id)
-  let texts = []
-  for(let i = 0; i < ids.length; i++){
-    texts = [...texts, await $source.getText(ids[i])]
-  }
+  const texts = ids.map(async (item) => await $source.getText(item));
   // 3. Return array of texts
-  return texts
+  return await Promise.all(texts);
 });
